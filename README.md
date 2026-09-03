@@ -29,6 +29,7 @@ Keep these paths and file names exactly as written. The website shows a styled p
 | `assets/images/apps/sevi.jpg` | 1000 × 1000 | Sevi Serval card |
 | `assets/images/apps/nexus.jpg` | 1000 × 1000 | Nexus card |
 
+
 Use licensed photos or images with appropriate consent. Every supplied people image should depict adult participants unless you have the required permission for younger people.
 
 ## Edit copy or add a language

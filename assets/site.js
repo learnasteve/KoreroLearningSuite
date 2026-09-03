@@ -44,10 +44,36 @@
   function renderApps() {
     const groups = ["learning", "tools", "visibility"];
     document.querySelector("#app-groups").innerHTML = groups.map((group) => {
-      const groupApps = apps.filter((app) => app.group === group);
-      return `<section class="app-group" aria-labelledby="${group}-heading"><div class="group-heading"><h3 id="${group}-heading">${t(`apps.${group}`)}</h3><span>${String(groupApps.length).padStart(2, "0")}</span></div><div class="app-grid">${groupApps.map((app) => `<article class="app-card"><div class="app-art"><img src="assets/images/apps/${app.image}.jpg" alt="" loading="lazy" /><span class="app-fallback" aria-hidden="true">${app.name.charAt(0)}</span></div><div><span class="status status-${app.status}">${t(`apps.${app.status}`)}</span><h4>${app.name}</h4><p>${app.desc[language]}</p></div></article>`).join("")}</div></section>`;
+      const groupApps = apps.map((app, index) => ({ app, index })).filter(({ app }) => app.group === group);
+      return `<section class="app-group" aria-labelledby="${group}-heading"><div class="group-heading"><h3 id="${group}-heading">${t(`apps.${group}`)}</h3><span>${String(groupApps.length).padStart(2, "0")}</span></div><div class="app-grid">${groupApps.map(({ app, index }) => `<button class="app-card" type="button" data-app-index="${index}" aria-expanded="false" aria-controls="app-group-details-${group}" aria-label="${app.name}: ${app.desc[language]}"><span class="app-art"><img src="assets/images/apps/${app.image}.jpg" alt="" loading="lazy" /><span class="app-fallback" aria-hidden="true">${app.name.charAt(0)}</span></span><span class="app-card-copy"><span class="status status-${app.status}">${t(`apps.${app.status}`)}</span><span class="app-title">${app.name}</span><span class="app-desc">${app.desc[language]}</span></span></button>`).join("")}</div><div class="app-group-details" id="app-group-details-${group}" aria-hidden="true"></div></section>`;
     }).join("");
     setImageFallbacks(document.querySelector("#app-groups"));
+  }
+
+  function renderPersonalisation() {
+    const cards = t("personalisation.cards");
+    document.querySelector("#personalisation-grid").innerHTML = cards.map((card, index) => `<article class="personalisation-card"><span aria-hidden="true">0${index + 1}</span><h3>${card.title}</h3><p>${card.text}</p></article>`).join("");
+  }
+
+  function showAppDetails(trigger) {
+    const index = Number(trigger.dataset.appIndex);
+    const app = apps[index];
+    const groupPanel = document.querySelector(`#app-group-details-${app.group}`);
+    const shouldOpen = trigger.getAttribute("aria-expanded") !== "true";
+    document.querySelectorAll(".app-card[aria-expanded=\"true\"]").forEach((openCard) => {
+      openCard.setAttribute("aria-expanded", "false");
+      openCard.classList.remove("is-selected");
+    });
+    document.querySelectorAll(".app-group-details.is-open").forEach((openPanel) => {
+      openPanel.classList.remove("is-open");
+      openPanel.setAttribute("aria-hidden", "true");
+    });
+    if (!shouldOpen) return;
+    groupPanel.innerHTML = `<div class="app-group-details-inner"><span class="status status-${app.status}">${t(`apps.${app.status}`)}</span><h4>${app.name}</h4><p>${app.details[language].overview}</p><ul class="tick-list">${app.details[language].features.map((feature) => `<li>${feature}</li>`).join("")}</ul></div>`;
+    groupPanel.classList.add("is-open");
+    groupPanel.setAttribute("aria-hidden", "false");
+    trigger.setAttribute("aria-expanded", "true");
+    trigger.classList.add("is-selected");
   }
 
   function applyLanguage(nextLanguage) {
@@ -63,6 +89,7 @@
     toggle.innerHTML = language === "en" ? '<span aria-hidden="true">EN</span> / <span>日本語</span>' : '<span>EN</span> / <span aria-hidden="true">日本語</span>';
     renderAudiencePanels();
     renderApps();
+    renderPersonalisation();
   }
 
   function activateAudience(nextAudience, focus = false) {
@@ -91,6 +118,10 @@
   const links = document.querySelector(".nav-links");
   menu.addEventListener("click", () => { const open = menu.getAttribute("aria-expanded") !== "true"; menu.setAttribute("aria-expanded", String(open)); links.classList.toggle("is-open", open); });
   links.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { menu.setAttribute("aria-expanded", "false"); links.classList.remove("is-open"); }));
+  document.querySelector("#app-groups").addEventListener("click", (event) => {
+    const card = event.target.closest(".app-card");
+    if (card) showAppDetails(card);
+  });
   applyLanguage(language);
   activateAudience(selectedAudience);
   setImageFallbacks();
