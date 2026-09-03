@@ -1,4 +1,4 @@
-:root { --ink: #13242c; --deep: #0d1f27; --paper: #f6ebd3; --mist: #dce4d5; --sun: #f3e3c2; --coral: #d77b2e; --leaf: #70947a; --muted: #506c6a; --line: rgba(19, 36, 44, .16); --shadow: 0 18px 45px rgba(13, 31, 39, .16); --radius: 24px; }
+:root { --ink: #52057b; --deep: #000000; --paper: #fcf9ff; --mist: #f1e7fa; --sun: #bc6ff1; --coral: #892cdc; --leaf: #52057b; --muted: #604a6b; --line: rgba(82, 5, 123, .18); --shadow: 0 18px 45px rgba(82, 5, 123, .18); --radius: 24px; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Nunito Sans", system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
@@ -48,3 +48,18 @@ button, a { font: inherit; } a { color: inherit; } button { cursor: pointer; } i
 .personalisation-card h3 { margin: .7rem 0 .45rem; font-family: Fraunces, Georgia, serif; font-size: 1.45rem; letter-spacing: -.035em; }
 .personalisation-card p { margin: 0; color: var(--muted); }
 @media (max-width: 800px) { .personalisation-grid { grid-template-columns: 1fr; }.personalisation-image { min-height: 220px; }.app-card { min-height: 8.8rem; } }
+.site-header { background: rgba(252,249,255,.9); }
+.hero::before { background: radial-gradient(circle at 10% 5%, rgba(137,44,220,.38), transparent 30%), radial-gradient(circle at 94% 80%, rgba(188,111,241,.3), transparent 31%); }
+.image-frame, .app-art { background: #eadcf8; }
+.image-placeholder { background: linear-gradient(145deg, #e6d0f8, #f9f4ff); }
+.app-art .app-fallback { background: linear-gradient(140deg, #d9b8f2, #f1e5fc); }
+.audience-image { box-shadow: 14px 14px 0 rgba(137,44,220,.28); }
+.personalisation-image { box-shadow: 14px 15px 0 rgba(137,44,220,.3); }
+.status-available { color: #245e36; background: #d7ead9; }
+.status-development { color: #5d168e; background: #f0dcff; }
+.status-retired { color: #69456f; background: #f2e8f4; }
+.research-image-link { display: block; border-radius: var(--radius); }
+.research-image-link:focus-visible { outline: 3px solid var(--sun); outline-offset: 5px; }
+.research-image-link:hover .image-frame-research { transform: translateY(-3px); box-shadow: 19px 20px 0 var(--coral); }
+.image-frame-research { transition: transform .2s ease, box-shadow .2s ease; }
+.audience-panel[data-panel="researcher"] .audience-image { min-height: 0; aspect-ratio: 3020 / 1714; }
