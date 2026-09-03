@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kōrero is a suite of supportive AI tools for English language learning." />
+    <title>Kōrero | English learning that keeps the conversation going</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script defer src="assets/content.js"></script>
+    <script defer src="assets/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header" id="top">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Kōrero home">
+          <img class="brand-logo" src="assets/images/korero-logo.jpg" alt="Let’s Kōrero logo" /><span class="wordmark" aria-hidden="true">Kōrero</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Open menu</span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#audiences" data-i18n="nav.audiences">For you</a>
+          <a href="#apps" data-i18n="nav.apps">The suite</a>
+          <a href="#research" data-i18n="nav.research">Research</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+          <button class="language-toggle" type="button" aria-label="日本語に切り替える"><span aria-hidden="true">EN</span> / <span>日本語</span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        <div class="shell hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow light" data-i18n="hero.eyebrow">KŌRERO EFL LEARNING SUITE</p>
+            <h1 data-i18n-html="hero.title">More chances to <em>use English.</em> More confidence to keep going.</h1>
+            <p class="hero-text" data-i18n="hero.text">Friendly, research-informed language learning tools that give every learner a place to practise and grow.</p>
+            <div class="hero-actions">
+              <a class="button button-sun" href="#audiences" data-i18n="hero.primary">Find your path</a>
+              <a class="text-link light-link" href="#apps" data-i18n-html="hero.secondary">Explore the suite <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <figure class="hero-visual image-frame image-frame-hero">
+            <img src="assets/images/student_tammy.jpeg" alt="" data-image-label="Kōrero learning in action" />
+            <figcaption class="image-placeholder"><span class="placeholder-icon" aria-hidden="true">✦</span><strong data-i18n="placeholders.hero.title">Learning in action</strong><span data-i18n="placeholders.hero.text">Add student_tammy.jpeg</span></figcaption>
+            <span class="hero-wordmark" aria-hidden="true">Kōrero</span>
+          </figure>
+        </div>
+        <div class="hero-scroll shell" aria-hidden="true"><span></span><small>SCROLL TO EXPLORE</small></div>
+      </section>
+
+      <section class="intro section shell">
+        <div><h2 data-i18n-html="intro.title">A learning suite built for the <em>moments between classes.</em></h2></div>
+        <p data-i18n="intro.text">Kōrero brings together conversational practice, writing support, vocabulary learning, reading tools, and learning insights. Each tool offers patient, personalised, purposeful practice—whenever it is needed.</p>
+      </section>
+
+      <section class="audiences section" id="audiences">
+        <div class="shell">
+          <div class="section-heading"><h2 data-i18n="audiences.title">Start where you are</h2></div>
+          <div class="audience-tabs" role="tablist" aria-label="Audience">
+            <button id="student-tab" role="tab" aria-selected="false" aria-controls="student-panel" data-audience="student"
+              tabindex="-1"><span aria-hidden="true">03</span><span data-i18n="tabs.student">Students</span></button>
+            <button id="teacher-tab" role="tab" aria-selected="true" aria-controls="teacher-panel" data-audience="teacher"><span aria-hidden="true">01</span><span data-i18n="tabs.teacher">Teachers</span></button>
+            <button id="researcher-tab" role="tab" aria-selected="false" aria-controls="researcher-panel" data-audience="researcher" tabindex="-1"><span aria-hidden="true">02</span><span data-i18n="tabs.researcher">Researchers</span></button>
+          </div>
+          <div class="audience-panels">
+            <article class="audience-panel" id="student-panel" role="tabpanel" tabindex="0" aria-labelledby="student-tab"
+                          data-panel="student" hidden></article>
+            <article class="audience-panel" id="teacher-panel" role="tabpanel" tabindex="0" aria-labelledby="teacher-tab" data-panel="teacher"></article>
+            <article class="audience-panel" id="researcher-panel" role="tabpanel" tabindex="0" aria-labelledby="researcher-tab" data-panel="researcher" hidden></article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="suite section" id="apps">
+        <div class="shell">
+          <div class="section-heading wide"><h2 data-i18n="apps.title">Small conversations. Meaningful progress.</h2></div>
+          <div id="app-groups"></div>
+        </div>
+      </section>
+
+      <section class="research section" id="research">
+        <div class="shell research-layout">
+          <div class="research-copy">
+            <p class="eyebrow light" data-i18n="research.eyebrow">RESEARCH IN PRACTICE</p>
+            <h2 data-i18n-html="research.title">Designed with classrooms. <em>Studied with care.</em></h2>
+            <p data-i18n="research.text">Kōrero is part of an ongoing doctoral research programme at Kyoto University, exploring how AI can provide more accessible, personal, and pedagogically thoughtful English-language practice.</p>
+            <div class="publication-links" aria-label="Publication profiles">
+              <a class="publication-link" href="https://www.researchgate.net/profile/Steve-Woollaston#publications" target="_blank" rel="noopener noreferrer"><span class="publication-icon icon-researchgate" aria-hidden="true">RG</span><span>ResearchGate</span><span aria-hidden="true">↗</span></a>
+              <a class="publication-link" href="https://scholar.google.com/citations?user=MpY1elgAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="publication-icon icon-scholar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Zm4 3.1V17c2.2 1.6 9.8 1.6 12 0v-4.4l-6 3.3-6-3.3Z"/></svg></span><span>Google Scholar</span><span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <figure class="image-frame image-frame-research">
+            <img src="assets/images/research_apclc2.jpg" alt="" data-image-label="Research in practice" loading="lazy" />
+            <figcaption class="image-placeholder"><span class="placeholder-icon" aria-hidden="true">⌁</span><strong data-i18n="placeholders.research.title">Research in progress</strong><span data-i18n="placeholders.research.text">Add research_apclc.jpg</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="shell contact-layout">
+          <figure class="portrait image-frame">
+            <img src="assets/images/steve_profile.png" alt="Steve Woollaston" loading="lazy" />
+            <figcaption class="image-placeholder"><span class="placeholder-icon" aria-hidden="true">☀</span><strong data-i18n="placeholders.portrait.title">Kia ora, I’m Steve</strong><span data-i18n="placeholders.portrait.text">Add steve_profile.png</span></figcaption>
+          </figure>
+          <div class="contact-copy"><p class="eyebrow" data-i18n="contact.eyebrow">LET’S TALK</p><h2 data-i18n="contact.title">Kia ora, I’m Steve.</h2><p data-i18n="contact.text">I’m a doctoral student at Kyoto University. I develop and research chatbots and tools for language learning, with a focus on creating more personalised, useful, and evidence-based solutions for EFL learners and teachers.</p><a class="email-link" href="mailto:s.m.woollaston@gmail.com">s.m.woollaston@gmail.com <span aria-hidden="true">↗</span></a><a class="lab-link" href="https://www.let.media.kyoto-u.ac.jp/" target="_blank" rel="noopener noreferrer">LET <span>(Learning and Educational Technologies Research Unit)</span> <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="shell footer-content"><a class="brand" href="#top" aria-label="Kōrero home"><img class="brand-logo" src="assets/images/korero-logo.jpg" alt="Let’s Kōrero logo" /><span class="wordmark" aria-hidden="true">Kōrero</span></a><p data-i18n="footer">English learning, one conversation at a time.</p><a href="#top" data-i18n="footerLink">Back to top ↑</a></div></footer>
+  </body>
+</html>
