@@ -63,3 +63,4 @@ button, a { font: inherit; } a { color: inherit; } button { cursor: pointer; } i
 .research-image-link:hover .image-frame-research { transform: translateY(-3px); box-shadow: 19px 20px 0 var(--coral); }
 .image-frame-research { transition: transform .2s ease, box-shadow .2s ease; }
 .audience-panel[data-panel="researcher"] .audience-image { min-height: 0; aspect-ratio: 3020 / 1714; }
+.research .korero-name { font-family: Georgia, serif; letter-spacing: -.055em; }
